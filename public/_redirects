@@ -1,4 +1,0 @@
-# /api/* is handled by netlify.toml (it redirects to the serverless function).
-# This file is a backup for the SPA fallback - it kicks in if netlify.toml
-# is missing. Do not redirect /api/* here.
-/*    /index.html   200
