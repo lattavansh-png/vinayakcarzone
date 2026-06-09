@@ -1,9 +1,8 @@
 // =============================================================
-// Tiny router for Netlify Functions (v2 format)
+// Tiny router for Netlify Functions (Web Standard Request/Response)
 // -------------------------------------------------------------
 // Maps URL paths to handler functions. All handlers receive
-// { req, params, query, body, event, context } and return a
-// Web `Response` object directly.
+// the raw `Request` object and return a Web `Response` object.
 // =============================================================
 
 import { verifyJwt, extractToken, rateLimit } from './auth.js'
@@ -15,7 +14,7 @@ import {
 } from './store.js'
 import { sendBookingConfirmation, sendAdminNotification } from './emailService.js'
 
-// ---------- response helpers (v2: return Response objects) ----------
+// ---------- response helpers ----------
 const ok = (data, status = 200) =>
   new Response(JSON.stringify({ success: true, ...data }), {
     status,
@@ -34,20 +33,26 @@ const corsHeaders = {
   'Access-Control-Allow-Methods': 'GET,POST,PATCH,DELETE,OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type, Authorization',
   'Access-Control-Allow-Credentials': 'true',
-  'Content-Type': 'application/json',
 }
 
-// ---------- shared helpers ----------
-const getClientIp = (event) =>
-  (event.headers['x-forwarded-for'] || event.headers['x-nf-client-connection-ip'] || '').split(',')[0].trim() ||
-  event.headers['client-ip'] || ''
+const corsResponse = (status = 204) =>
+  new Response('', { status, headers: corsHeaders })
 
-const requireAdmin = async (event) => {
-  // Lazy-seed the default admin (idempotent). Runs at most once
-  // per cold start and is essentially free on warm invocations.
+// ---------- helpers ----------
+const getClientIp = (request) => {
+  return (
+    request.headers.get('x-forwarded-for')?.split(',')[0].trim() ||
+    request.headers.get('x-nf-client-connection-ip') ||
+    request.headers.get('client-ip') ||
+    ''
+  )
+}
+
+const requireAdmin = async (request) => {
   await ensureDefaultAdmin()
 
-  const token = extractToken(event.headers.authorization || event.headers.Authorization)
+  const auth = request.headers.get('authorization') || request.headers.get('Authorization')
+  const token = extractToken(auth)
   if (!token) return { error: { status: 401, message: 'Not authorized. Please log in to access this resource.' } }
   const payload = await verifyJwt(token, process.env.JWT_SECRET)
   if (!payload) return { error: { status: 401, message: 'Invalid or expired token. Please log in again.' } }
@@ -74,8 +79,8 @@ const health = async () =>
   ok({ message: 'Vinayak Car Zone API is running', timestamp: new Date().toISOString() })
 
 // POST /api/appointments  (public, rate-limited)
-const createAppointment = async (req, { event }) => {
-  const ip = getClientIp(event)
+const createAppointment = async (request) => {
+  const ip = getClientIp(request)
   const rl = await rateLimit({
     key: 'booking:' + (ip || 'anon'),
     windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 15 * 60 * 1000,
@@ -85,7 +90,10 @@ const createAppointment = async (req, { event }) => {
     return fail(429, 'Too many booking requests, please try again later.')
   }
 
-  const v = validateAppointment(req.body)
+  let body = {}
+  try { body = await request.json() } catch { body = {} }
+
+  const v = validateAppointment(body)
   if (!v.ok) return fail(400, 'Validation failed', { errors: v.errors })
   const data = v.value
 
@@ -122,7 +130,7 @@ const createAppointment = async (req, { event }) => {
 }
 
 // GET /api/appointments/:id  (public, by tracking id)
-const getById = async (req, { params }) => {
+const getById = async (_request, { params }) => {
   const { id } = params
   let appointment = await findAppointmentByTrackingId(id)
   if (!appointment) appointment = await getAppointmentById(id)
@@ -165,7 +173,7 @@ const getStats = async () => {
 }
 
 // GET /api/appointments/admin/all?status=&search=&page=&limit=&sort=
-const getAll = async (req, { query }) => {
+const getAll = async (_request, { query }) => {
   const { status, search, page = 1, limit = 20, sort = '-createdAt' } = query
   let all = await listAppointments()
 
@@ -206,7 +214,7 @@ const getAll = async (req, { query }) => {
 }
 
 // GET /api/appointments/admin/:id
-const getSingle = async (req, { params }) => {
+const getSingle = async (_request, { params }) => {
   const a = await getAppointmentById(params.id)
   if (!a) return fail(404, 'Appointment not found')
   const { ipAddress, ...safe } = a
@@ -214,8 +222,10 @@ const getSingle = async (req, { params }) => {
 }
 
 // PATCH /api/appointments/admin/:id   body: { status }
-const updateStatus = async (req, { params }) => {
-  const v = validateStatusUpdate(req.body)
+const updateStatus = async (request, { params }) => {
+  let body = {}
+  try { body = await request.json() } catch { body = {} }
+  const v = validateStatusUpdate(body)
   if (!v.ok) return fail(400, 'Validation failed', { errors: v.errors })
   const a = await getAppointmentById(params.id)
   if (!a) return fail(404, 'Appointment not found')
@@ -227,7 +237,7 @@ const updateStatus = async (req, { params }) => {
 }
 
 // DELETE /api/appointments/admin/:id   (super-admin only)
-const remove = async (req, { params, admin }) => {
+const remove = async (_request, { params, admin }) => {
   if (admin.role !== 'super-admin') {
     return fail(403, 'You do not have permission to perform this action.')
   }
@@ -238,9 +248,11 @@ const remove = async (req, { params, admin }) => {
 }
 
 // POST /api/admin/login
-const login = async (req) => {
+const login = async (request) => {
   await ensureDefaultAdmin()
-  const v = validateLogin(req.body)
+  let body = {}
+  try { body = await request.json() } catch { body = {} }
+  const v = validateLogin(body)
   if (!v.ok) return fail(400, 'Validation failed', { errors: v.errors })
 
   const admin = await findAdminByEmail(v.value.email)
@@ -276,10 +288,10 @@ const login = async (req) => {
 }
 
 // GET /api/admin/me
-const me = async (req, { admin }) =>
+const me = async (_request, { admin }) =>
   ok({
     data: {
-      id: admin.id,
+      id: admin._id,
       name: admin.name,
       email: admin.email,
       role: admin.role,
@@ -292,8 +304,10 @@ const logout = async () =>
   ok({ message: 'Logged out successfully. Please remove the token from client.' })
 
 // PATCH /api/admin/change-password   body: { currentPassword, newPassword }
-const changePassword = async (req, { admin }) => {
-  const v = validatePasswordChange(req.body)
+const changePassword = async (request, { admin }) => {
+  let body = {}
+  try { body = await request.json() } catch { body = {} }
+  const v = validatePasswordChange(body)
   if (!v.ok) return fail(400, 'Validation failed', { errors: v.errors })
   const { currentPassword, newPassword } = v.value
   const okPwd = await verifyPassword(currentPassword, admin.passwordHash)
@@ -305,10 +319,10 @@ const changePassword = async (req, { admin }) => {
 }
 
 // ---------- auth-wrapping middleware ----------
-const withAdmin = (handler) => async (req, ctx) => {
-  const r = await requireAdmin(ctx.event)
+const withAdmin = (handler) => async (request, ctx) => {
+  const r = await requireAdmin(request)
   if (r.error) return fail(r.error.status, r.error.message)
-  return handler(req, { ...ctx, admin: { ...r.admin, id: r.admin._id } })
+  return handler(request, ctx)
 }
 
 // ---------- route table ----------
@@ -334,34 +348,39 @@ const routes = [
   { method: 'PATCH',  pattern: /^\/api\/admin\/change-password\/?$/,                 handler: withAdmin(changePassword) },
 ]
 
-// ---------- main entry: handle(event, context) ----------
-// Parses the request, matches a route, and calls the handler.
-// Returns a Web `Response` object (Netlify Functions v2 format).
-export const handle = async (event) => {
-  const method = event.httpMethod
-  let path = event.path || ''
-  // Strip Netlify function prefix like /.netlify/functions/api
-  path = path.replace(/^\/.netlify\/functions\/[^/]+/, '')
-  if (!path.startsWith('/')) path = '/' + path
-  const pathForMatch = path.length > 1 ? path.replace(/\/+$/, '') : path
+// ---------- main entry: handle(request, context) ----------
+// Accepts a standard Web `Request` and returns a Web `Response`.
+export const handle = async (request) => {
+  try {
+    const url = new URL(request.url)
+    let path = url.pathname
+    const method = request.method
 
-  // CORS preflight
-  if (method === 'OPTIONS') {
-    return new Response('', { status: 204, headers: corsHeaders })
-  }
+    // Strip Netlify function prefix like /.netlify/functions/api
+    path = path.replace(/^\/.netlify\/functions\/[^/]+/, '')
+    if (!path.startsWith('/')) path = '/' + path
+    const pathForMatch = path.length > 1 ? path.replace(/\/+$/, '') : path
 
-  const query = event.queryStringParameters || {}
-  const body = parseBody(event)
-  const req = { method, path, body, query, headers: event.headers }
+    // CORS preflight
+    if (method === 'OPTIONS') {
+      return corsResponse(204)
+    }
 
-  for (const r of routes) {
-    if (r.method !== method) continue
-    const m = r.pattern.exec(pathForMatch)
-    if (!m) continue
-    const params = {}
-    if (r.groups) r.groups.forEach((name, i) => { params[name] = decodeURIComponent(m[i + 1]) })
-    try {
-      const response = await r.handler(req, { event, params, query, body })
+    // Build a query object from the URL
+    const query = Object.fromEntries(url.searchParams.entries())
+    const queryNum = {}
+    for (const [k, v] of Object.entries(query)) {
+      const n = parseInt(v, 10)
+      queryNum[k] = isNaN(n) || String(n) !== v ? v : n
+    }
+
+    for (const r of routes) {
+      if (r.method !== method) continue
+      const m = r.pattern.exec(pathForMatch)
+      if (!m) continue
+      const params = {}
+      if (r.groups) r.groups.forEach((name, i) => { params[name] = decodeURIComponent(m[i + 1]) })
+      const response = await r.handler(request, { params, query: queryNum })
       // Add CORS headers to every response
       const newHeaders = new Headers(response.headers)
       Object.entries(corsHeaders).forEach(([k, v]) => {
@@ -371,27 +390,18 @@ export const handle = async (event) => {
         status: response.status,
         headers: newHeaders,
       })
-    } catch (err) {
-      console.error('Handler error:', err)
-      return new Response(
-        JSON.stringify({ success: false, message: 'Internal server error' }),
-        { status: 500, headers: corsHeaders }
-      )
     }
-  }
 
-  // No route matched
-  return new Response(
-    JSON.stringify({ success: false, message: 'Route ' + method + ' ' + path + ' not found' }),
-    { status: 404, headers: corsHeaders }
-  )
-}
-
-const parseBody = (event) => {
-  if (!event.body) return {}
-  if (event.isBase64Encoded) {
-    try { return JSON.parse(Buffer.from(event.body, 'base64').toString('utf-8')) } catch { return {} }
+    // No route matched
+    return new Response(
+      JSON.stringify({ success: false, message: `Route ${method} ${path} not found` }),
+      { status: 404, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+    )
+  } catch (err) {
+    console.error('Handler error:', err)
+    return new Response(
+      JSON.stringify({ success: false, message: 'Internal server error', error: err.message }),
+      { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+    )
   }
-  try { return typeof event.body === 'string' ? JSON.parse(event.body) : event.body }
-  catch { return {} }
 }
