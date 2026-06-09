@@ -1,7 +1,7 @@
 # Files/folders to ignore when deploying to Netlify
 node_modules
 server
-vinayak car zone
+"vinayak car zone"
 .git
 .env
 .env.local
@@ -24,6 +24,8 @@ start-dev.bat
 *.md
 !README.md
 !DEPLOYMENT.md
+!ENV_VARIABLES.md
+!DEPLOY_CHECKLIST.md
 
 # Ignore the old Express server tree entirely (we use Netlify Functions now)
 server/**
