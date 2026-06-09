@@ -1,0 +1,41 @@
+# =====================================================
+#  Vinayak Car Zone - git ignore rules
+# =====================================================
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.netlify/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.sw?
+*.swo
+
+# Tooling artefacts
+build_output.txt
+test-booking.js
+cleanup.mjs
+fix_css.py
+update_testimonials.py
+update_testimonials_css.py
+live-main.js
+vinayak_homepage.html
+start-dev.bat
+
+# Leftover nested scaffold (do not commit)
+vinayak car zone/

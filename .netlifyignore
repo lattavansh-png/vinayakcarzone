@@ -1,0 +1,29 @@
+# Files/folders to ignore when deploying to Netlify
+node_modules
+server
+vinayak car zone
+.git
+.env
+.env.local
+*.log
+backend.log
+backend.err.log
+frontend.log
+frontend.err.log
+build_output.txt
+test-booking.js
+cleanup.mjs
+fix_css.py
+update_testimonials.py
+update_testimonials_css.py
+live-main.js
+vinayak_homepage.html
+start-dev.bat
+.vscode
+.idea
+*.md
+!README.md
+!DEPLOYMENT.md
+
+# Ignore the old Express server tree entirely (we use Netlify Functions now)
+server/**

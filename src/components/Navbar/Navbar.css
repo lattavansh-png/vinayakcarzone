@@ -1,0 +1,689 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: white;
+  box-shadow: 0 2px 20px rgba(15, 23, 42, 0.08);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* ====== Top bar ====== */
+.navbar-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background: #000000;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+.navbar-top.section-container {
+  padding: 0.55rem 1rem;
+  margin: 0;
+  max-width: none;
+}
+
+.navbar-top-left,
+.navbar-top-right {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  align-items: center;
+  min-width: 0;
+}
+
+.navbar-top-item {
+  color: #f3f4f6;
+  font-size: 0.82rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.navbar-top-item:hover {
+  color: #f97316;
+}
+
+.navbar-top-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 1rem;
+  background: transparent;
+  color: #dc2626;
+  border: 1px solid #dc2626;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ====== Main nav row ====== */
+.navbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  min-height: 80px;
+  padding: 0.5rem 0;
+  flex-wrap: nowrap;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.navbar-inner.section-container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  box-sizing: border-box;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 800;
+  color: #111111;
+  text-transform: none;
+  flex-shrink: 0;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.brand-logo {
+  width: 80px;
+  height: auto;
+  max-width: 100%;
+  flex-shrink: 0;
+}
+
+.brand-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* ====== Hamburger toggle (hidden on desktop) ====== */
+.navbar-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-left: auto;
+  z-index: 60;
+}
+
+.navbar-toggle span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background: #111111;
+  border-radius: 3px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.navbar-toggle.is-open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.navbar-toggle.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggle.is-open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ====== Nav links container ====== */
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex: 1;
+  min-width: 0;
+  justify-content: flex-end;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.nav-links a,
+.nav-cta {
+  color: #111111;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.88rem;
+  font-weight: 700;
+  transition: color 0.25s ease;
+  white-space: nowrap;
+}
+
+.nav-links a:hover,
+.nav-links a.active,
+.nav-cta.active {
+  color: #dc2626;
+}
+
+.nav-cta {
+  padding: 0.55rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.button-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #dc2626;
+  color: white;
+  padding: 0.95rem 1.9rem;
+  border-radius: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  white-space: nowrap;
+  transition: background 0.25s ease, transform 0.25s ease;
+  flex-shrink: 0;
+}
+
+.button-link:hover {
+  background: #b91c1c;
+  transform: translateY(-1px);
+}
+
+.button-link.button-secondary {
+  background: #dc2626;
+  color: white;
+  width: auto;
+  min-width: auto;
+  padding: 0.75rem 1.5rem;
+}
+
+.navbar-book {
+  height: auto;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 12px 24px rgba(220, 38, 38, 0.18);
+  font-size: 0.9rem;
+  min-width: 140px;
+}
+
+.navbar-book:hover {
+  transform: translateY(-2px);
+}
+
+/* ====== ADMIN TOP BAR (only on /admin/* routes) ====== */
+.navbar-admin {
+  background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+}
+
+.navbar-top-admin {
+  background: linear-gradient(90deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  border-bottom: 1px solid rgba(220, 38, 38, 0.4);
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.15);
+}
+
+.navbar-top-admin .navbar-top-left,
+.navbar-top-admin .navbar-top-right {
+  gap: 1rem;
+}
+
+.navbar-admin-mode-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.9rem;
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  color: #ffffff;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.35);
+}
+
+.navbar-admin-user {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #e2e8f0;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+}
+
+.navbar-admin-user strong {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.navbar-admin-role {
+  color: #fbbf24;
+  font-weight: 700;
+  text-transform: capitalize;
+  margin-left: 0.15rem;
+}
+
+.navbar-admin-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.75rem;
+  background: rgba(255, 255, 255, 0.06);
+  color: #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.navbar-admin-stat strong {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.navbar-admin-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.85rem;
+  background: rgba(255, 255, 255, 0.06);
+  color: #e2e8f0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.navbar-admin-link:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+.navbar-admin-link-danger {
+  background: rgba(220, 38, 38, 0.15);
+  color: #fca5a5;
+  border-color: rgba(220, 38, 38, 0.4);
+}
+
+.navbar-admin-link-danger:hover {
+  background: rgba(220, 38, 38, 0.3);
+  color: #ffffff;
+  border-color: rgba(220, 38, 38, 0.6);
+}
+
+/* Override the brand text color on admin routes for visibility */
+.navbar-admin .brand {
+  color: #ffffff;
+}
+
+.navbar-admin .navbar-toggle span {
+  background: #ffffff;
+}
+
+/* ====== RESPONSIVE BREAKPOINTS ====== */
+
+/* 1200px and below */
+@media (max-width: 1200px) {
+  .navbar-inner {
+    gap: 1rem;
+  }
+
+  .nav-links {
+    gap: 1.2rem;
+  }
+
+  .nav-links a,
+  .nav-cta {
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+  }
+
+  .brand-logo {
+    width: 70px;
+  }
+
+  .navbar-admin-stat,
+  .navbar-admin-link {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.65rem;
+  }
+
+  .navbar-admin-mode-badge {
+    font-size: 0.72rem;
+    padding: 0.35rem 0.75rem;
+  }
+}
+
+/* 1024px and below - keep desktop but tighten */
+@media (max-width: 1024px) {
+  .nav-links {
+    gap: 0.9rem;
+  }
+
+  .nav-links a,
+  .nav-cta {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+
+  .navbar-book {
+    padding: 0.65rem 1.2rem;
+    font-size: 0.8rem;
+    min-width: 120px;
+  }
+
+  .navbar-admin-stat {
+    font-size: 0.72rem;
+    padding: 0.3rem 0.55rem;
+  }
+
+  .navbar-admin-link {
+    font-size: 0.72rem;
+    padding: 0.3rem 0.6rem;
+  }
+}
+
+/* 900px and below - switch to mobile menu */
+@media (max-width: 900px) {
+  .navbar-toggle {
+    display: flex;
+  }
+
+  .navbar-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: min(85vw, 320px);
+    max-width: 100%;
+    background: white;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 90px 1.5rem 1.5rem;
+    gap: 1.25rem;
+    box-shadow: -8px 0 30px rgba(15, 23, 42, 0.15);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 50;
+    overflow-y: auto;
+  }
+
+  .navbar-menu.is-open {
+    transform: translateX(0);
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: 100%;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+  }
+
+  .nav-links a,
+  .nav-cta {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+    border-radius: 0;
+    text-align: left;
+  }
+
+  .nav-cta {
+    border: none;
+    padding: 0.75rem 0.5rem;
+  }
+
+  .navbar-book {
+    width: 100%;
+    text-align: center;
+    margin-top: 0.5rem;
+    padding: 0.85rem 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .navbar-inner {
+    min-height: 70px;
+  }
+
+  /* Admin top bar: stack on small screens */
+  .navbar-top-admin {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .navbar-top-admin .navbar-top-left,
+  .navbar-top-admin .navbar-top-right {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}
+
+/* Backdrop overlay (used implicitly via body scroll lock, no extra element) */
+@media (max-width: 900px) {
+  body.menu-open {
+    overflow: hidden;
+  }
+}
+
+/* 768px and below - top bar tweaks */
+@media (max-width: 768px) {
+  .navbar-top {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    gap: 0.5rem;
+  }
+
+  .navbar-top-left,
+  .navbar-top-right {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.85rem;
+  }
+
+  .navbar-top-item {
+    font-size: 0.78rem;
+  }
+
+  .navbar-top-badge {
+    font-size: 0.7rem;
+    padding: 0.35rem 0.8rem;
+  }
+
+  .brand-text {
+    font-size: 0.95rem;
+  }
+
+  .navbar-admin-mode-badge {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.7rem;
+  }
+
+  .navbar-admin-user {
+    font-size: 0.78rem;
+  }
+
+  .navbar-admin-stat {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .navbar-admin-link {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.55rem;
+  }
+}
+
+/* 480px and below - small mobile */
+@media (max-width: 480px) {
+  .navbar {
+    position: relative;
+  }
+
+  .navbar-top {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .navbar-top-item {
+    font-size: 0.7rem;
+    gap: 0.3rem;
+  }
+
+  .navbar-top-item-text {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .navbar-top-item-address .navbar-top-item-text {
+    max-width: 200px;
+  }
+
+  .navbar-top-item-hours .navbar-top-item-text {
+    max-width: 180px;
+  }
+
+  .navbar-top-badge {
+    font-size: 0.65rem;
+    padding: 0.3rem 0.7rem;
+    letter-spacing: 0.08em;
+  }
+
+  .navbar-inner {
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    min-height: 64px;
+  }
+
+  .navbar-inner.section-container {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .brand {
+    gap: 0.5rem;
+  }
+
+  .brand-logo {
+    width: 56px;
+  }
+
+  .brand-text {
+    font-size: 0.85rem;
+  }
+
+  .navbar-toggle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .navbar-menu {
+    width: min(90vw, 320px);
+    padding: 80px 1.25rem 1.25rem;
+  }
+
+  .nav-links a,
+  .nav-cta {
+    font-size: 0.88rem;
+    padding: 0.65rem 0.4rem;
+  }
+
+  .navbar-admin-mode-badge {
+    font-size: 0.65rem;
+    padding: 0.25rem 0.6rem;
+  }
+
+  .navbar-admin-user {
+    font-size: 0.72rem;
+  }
+
+  .navbar-admin-stat {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.4rem;
+  }
+
+  .navbar-admin-stat strong {
+    font-size: 0.78rem;
+  }
+
+  .navbar-admin-link {
+    font-size: 0.65rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+/* 360px and below - very small */
+@media (max-width: 360px) {
+  .brand-text {
+    font-size: 0.78rem;
+  }
+
+  .navbar-top-item {
+    font-size: 0.65rem;
+  }
+
+  .navbar-top-badge {
+    font-size: 0.6rem;
+  }
+
+  .navbar-admin-mode-badge {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .navbar-admin-stat,
+  .navbar-admin-link {
+    font-size: 0.6rem;
+    padding: 0.2rem 0.4rem;
+  }
+}

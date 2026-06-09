@@ -1,0 +1,286 @@
+.hero-banner {
+  background: #050505;
+  color: white;
+  padding: 80px 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+}
+
+.hero-image-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.hero-image-wrap img {
+  width: 100%;
+  height: 500px;
+  max-height: 70vh;
+  object-fit: cover;
+  display: block;
+  border-radius: 24px;
+}
+
+.hero-badge {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #dc2626;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  line-height: 1.2;
+  box-shadow: 0 10px 30px rgba(220, 38, 38, 0.35);
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.hero-eyebrow {
+  display: inline-block;
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.6rem 1rem;
+  background: rgba(220, 38, 38, 0.15);
+  color: #ff6b6b;
+  border-radius: 999px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.hero-copy h1 {
+  margin: 0;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  font-weight: 900;
+  word-break: break-word;
+}
+
+.hero-copy h1 span {
+  color: #dc2626;
+}
+
+.hero-copy p {
+  margin: 0;
+  color: #cbd5e1;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  max-width: 100%;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.button-primary,
+.button-secondary {
+  text-decoration: none;
+  padding: 14px 24px;
+  border-radius: 14px;
+  font-weight: 700;
+  transition: 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: normal;
+}
+
+.button-primary {
+  background: #dc2626;
+  color: white;
+}
+
+.button-primary:hover {
+  background: #b91c1c;
+}
+
+.button-secondary {
+  border: 2px solid #dc2626;
+  color: white;
+  background: transparent;
+}
+
+.button-secondary:hover {
+  background: #dc2626;
+}
+
+/* ====== RESPONSIVE BREAKPOINTS ====== */
+
+/* 1200px and below */
+@media (max-width: 1200px) {
+  .hero-content {
+    gap: 3rem;
+  }
+
+  .hero-image-wrap img {
+    height: 450px;
+  }
+}
+
+/* 1024px and below - switch to single column */
+@media (max-width: 1024px) {
+  .hero-banner {
+    padding: 70px 0;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .hero-copy {
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-image-wrap img {
+    height: 420px;
+  }
+}
+
+/* 768px and below */
+@media (max-width: 768px) {
+  .hero-banner {
+    padding: 60px 0;
+  }
+
+  .hero-content {
+    gap: 2rem;
+  }
+
+  .hero-image-wrap img {
+    height: 320px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+  }
+
+  .hero-copy p {
+    font-size: 0.95rem;
+  }
+
+  .button-primary,
+  .button-secondary {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .hero-badge {
+    width: 80px;
+    height: 80px;
+    font-size: 0.75rem;
+    right: 16px;
+    bottom: 16px;
+  }
+}
+
+/* 480px and below - small mobile */
+@media (max-width: 480px) {
+  .hero-banner {
+    padding: 48px 0;
+  }
+
+  .hero-content {
+    gap: 1.5rem;
+  }
+
+  .hero-image-wrap {
+    border-radius: 16px;
+  }
+
+  .hero-image-wrap img {
+    height: 240px;
+    border-radius: 16px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+  }
+
+  .hero-copy p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.7rem;
+    padding: 0.45rem 0.85rem;
+  }
+
+  .button-primary,
+  .button-secondary {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    border-radius: 10px;
+  }
+
+  .hero-badge {
+    width: 70px;
+    height: 70px;
+    font-size: 0.7rem;
+    right: 12px;
+    bottom: 12px;
+  }
+}
+
+/* 360px and below - very small */
+@media (max-width: 360px) {
+  .hero-banner {
+    padding: 40px 0;
+  }
+
+  .hero-image-wrap img {
+    height: 200px;
+  }
+
+  .hero-copy h1 {
+    font-size: 1.4rem;
+  }
+
+  .hero-badge {
+    width: 60px;
+    height: 60px;
+    font-size: 0.6rem;
+  }
+}

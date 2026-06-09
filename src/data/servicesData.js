@@ -1,0 +1,88 @@
+const servicesData = [
+  {
+    id: 'denting-painting',
+    title: 'Denting & Painting',
+    description: 'Expert dent removal, scratch repair, full body painting, and professional color matching services.',
+    icon: '/images/icons/service.svg',
+    image: '/services/denting.jpg',
+  },
+  {
+    id: 'car-spa-cleaning',
+    title: 'Car Spa & Cleaning',
+    description: 'Interior deep cleaning, exterior wash, polishing, ceramic coating, and premium detailing services.',
+    icon: '/images/icons/service.svg',
+    image: '/services/cleaning.jpg',
+  },
+  {
+    id: 'batteries',
+    title: 'Batteries',
+    description: 'Battery testing, replacement, jump start service, and complete electrical system diagnostics.',
+    icon: '/images/icons/battery.svg',
+    image: '/services/battery.jpg',
+  },
+  {
+    id: 'suspension-fitments',
+    title: 'Suspension & Fitments',
+    description: 'Shock absorber replacement, suspension repair, and custom fitments for improved ride quality.',
+    icon: '/images/icons/service.svg',
+    image: '/services/tyres.jpg',
+  },
+  {
+    id: 'clutch-body-parts',
+    title: 'Clutch & Body Parts',
+    description: 'Clutch replacement and body part repairs with genuine OEM and premium aftermarket components.',
+    icon: '/images/icons/service.svg',
+    image: '/services/denting.jpg',
+  },
+  {
+    id: 'general-service',
+    title: 'General Service',
+    description: 'Oil change, filter replacement, fluid top-up, and comprehensive multi-point inspection.',
+    icon: '/images/icons/service.svg',
+    image: '/services/ac-service.jpg',
+  },
+  {
+    id: 'car-inspections',
+    title: 'Car Inspections',
+    description: 'Pre-purchase inspection, comprehensive health check, and emission testing for peace of mind.',
+    icon: '/images/icons/service.svg',
+    image: '/services/cleaning.jpg',
+  },
+  {
+    id: 'ac-service-repair',
+    title: 'AC Service & Repair',
+    description: 'Complete AC diagnostics, gas refilling, compressor repair, and cooling maintenance for all car brands.',
+    icon: '/images/icons/ac.svg',
+    image: '/services/ac-service.jpg',
+  },
+  {
+    id: 'tyres-wheel-care',
+    title: 'Tyres & Wheel Care',
+    description: 'Tyre replacement, wheel alignment, balancing, rotation, and puncture repair for every vehicle.',
+    icon: '/images/icons/tyre.svg',
+    image: '/services/tyres.jpg',
+  },
+  {
+    id: 'detailing-services',
+    title: 'Detailing Services',
+    description: 'Premium detailing, paint correction, ceramic coating, and PPF installation by skilled technicians.',
+    icon: '/images/icons/service.svg',
+    image: '/services/cleaning.jpg',
+  },
+  {
+    id: 'windshield-lights',
+    title: 'Windshield & Lights',
+    description: 'Windshield repair and replacement, headlight restoration, and complete lighting system care.',
+    icon: '/images/icons/service.svg',
+    image: '/services/ac-service.jpg',
+  },
+  {
+    id: 'insurance-claims',
+    title: 'Insurance Claims',
+    description: 'Cashless claims with all major insurers, documentation support, and repair coordination.',
+    icon: '/images/icons/service.svg',
+    image: '/services/battery.jpg',
+  },
+]
+
+export default servicesData

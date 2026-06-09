@@ -1,0 +1,57 @@
+# =========================================================
+#  Netlify configuration for Vinayak Car Zone
+# =========================================================
+# Everything runs on Netlify: the React/Vite frontend is served
+# from `dist/`, and the entire backend (appointments + admin
+# auth) is served as a single serverless function at `/api/*`.
+#
+# Required env vars on Netlify (Site settings -> Environment):
+#   JWT_SECRET          long random string (openssl rand -hex 32)
+#   ADMIN_EMAIL         e.g. admin@vinayakcarzone.in
+#   ADMIN_PASSWORD      strong password (8+ chars)
+#   ADMIN_NAME          optional, defaults to "Admin"
+#   FRONTEND_URL        optional, the site's own URL (for emails)
+#
+# Optional env vars:
+#   SMTP_HOST, SMTP_PORT, SMTP_SECURE, SMTP_USER, SMTP_PASS,
+#   SMTP_FROM_NAME, SMTP_FROM_EMAIL, ADMIN_NOTIFY_EMAIL
+#   RATE_LIMIT_WINDOW_MS, RATE_LIMIT_MAX_REQUESTS
+# =========================================================
+
+[build]
+  base    = "."
+  publish = "dist"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Backend: route every /api/* request to the single serverless function.
+# The function strips /api and dispatches via the in-process router.
+[[redirects]]
+  from   = "/api/*"
+  to     = "/.netlify/functions/api/:splat"
+  status = 200
+  force  = true
+
+# SPA fallback: send every other unknown path to index.html so
+# React Router can handle client-side routes like /book,
+# /admin/login, /admin/dashboard, etc.
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
+
+# Security + caching headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options        = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy        = "strict-origin-when-cross-origin"
+    Permissions-Policy     = "geolocation=(), microphone=(), camera=()"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

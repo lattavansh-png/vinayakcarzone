@@ -1,0 +1,550 @@
+/* ============================================
+   ABOUT PAGE
+   Matches the live vinayakcarzone.in design
+   ============================================ */
+
+.about-page {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* ====== HERO ====== */
+.about-hero {
+  position: relative;
+  background: #0a0a0a;
+  color: #ffffff;
+  padding: clamp(4rem, 9vw, 7rem) 0 clamp(4rem, 9vw, 7rem);
+  overflow: hidden;
+}
+
+.about-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  z-index: 0;
+}
+
+.about-hero-bg::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 60%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.about-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-tag {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(220, 38, 38, 0.2);
+  color: #fca5a5;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.5rem;
+}
+
+.about-hero-title {
+  font-size: clamp(2.25rem, 6vw, 4rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0 0 1.5rem;
+  word-break: break-word;
+}
+
+.about-hero-title .text-red {
+  color: #dc2626;
+}
+
+.about-hero-desc {
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  color: #d1d5db;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ====== STATS ====== */
+.about-stats {
+  background: #dc2626;
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+}
+
+.about-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  text-align: center;
+}
+
+.about-stat {
+  color: #ffffff;
+}
+
+.about-stat-value {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+}
+
+.about-stat-label {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ====== SECTION HEADERS (shared) ====== */
+.about-section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 4rem;
+}
+
+.about-tag-sm {
+  display: inline-block;
+  color: #dc2626;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.about-section-title {
+  font-size: clamp(1.875rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  margin: 0;
+  color: #111827;
+  word-break: break-word;
+}
+
+.about-section-header-light .about-section-title-light {
+  color: #ffffff;
+}
+
+.about-section-header-light .about-tag-sm-light {
+  color: #fca5a5;
+}
+
+/* ====== OUR STORY ====== */
+.about-story {
+  padding: clamp(3rem, 6vw, 6rem) 0;
+  background: #ffffff;
+}
+
+.about-story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-story-text .about-tag-sm {
+  margin-bottom: 1rem;
+}
+
+.about-story-text .about-section-title {
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.about-story-paras {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  color: #4b5563;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.about-story-paras p {
+  margin: 0;
+}
+
+.about-story-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.about-story-images img {
+  width: 100%;
+  height: 16rem;
+  object-fit: cover;
+  border-radius: 4px;
+  transition: transform 0.5s ease;
+}
+
+.about-story-images img:hover {
+  transform: scale(1.03);
+}
+
+.about-story-images img:nth-child(2) {
+  margin-top: 2rem;
+}
+
+.about-story-images img:nth-child(3) {
+  margin-top: -1rem;
+}
+
+/* ====== TEAM (Management & Technicians) ====== */
+.about-team {
+  padding: clamp(3rem, 6vw, 6rem) 0;
+}
+
+.about-team-management {
+  background: #f9fafb;
+}
+
+.about-team-technicians {
+  background: #ffffff;
+}
+
+.about-team-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.about-team-grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-team-card {
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.about-team-card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-4px);
+}
+
+.about-team-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+}
+
+.about-team-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.about-team-card:hover .about-team-photo img {
+  transform: scale(1.05);
+}
+
+.about-team-body {
+  padding: 1.5rem;
+}
+
+.about-team-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 0.5rem;
+}
+
+.about-team-role {
+  display: inline-block;
+  color: #dc2626;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-right: 0.5rem;
+}
+
+.about-team-exp {
+  display: inline-block;
+  background: #0a0a0a;
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+}
+
+.about-team-desc {
+  color: #4b5563;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0.75rem 0 0;
+}
+
+/* ====== INSURANCE PARTNERS ====== */
+.about-insurance {
+  background: #0a0a0a;
+  color: #ffffff;
+  padding: clamp(3rem, 6vw, 6rem) 0;
+}
+
+.about-insurance-desc {
+  color: #9ca3af;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 1rem 0 0;
+}
+
+.about-insurance-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.about-insurance-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  cursor: default;
+}
+
+.about-insurance-pill:hover {
+  background: #dc2626;
+  color: #ffffff;
+  border-color: #dc2626;
+}
+
+/* ====== GALLERY ====== */
+.about-gallery {
+  background: #ffffff;
+  padding: clamp(3rem, 6vw, 6rem) 0;
+}
+
+.about-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 220px;
+  gap: 1rem;
+}
+
+.about-gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #f3f4f6;
+}
+
+.about-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.about-gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.about-gallery-item.span-tall {
+  grid-row: span 2;
+}
+
+/* ====== CTA ====== */
+.about-cta {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  color: #ffffff;
+  padding: clamp(3rem, 6vw, 6rem) 0;
+  text-align: center;
+}
+
+.about-cta-title {
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  margin: 0 0 1rem;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.about-cta-desc {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  margin: 0 0 2rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.about-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.95rem 2rem;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+  min-height: 3.25rem;
+}
+
+.about-cta-btn-primary {
+  background: #ffffff;
+  color: #dc2626;
+  border: 2px solid #ffffff;
+}
+
+.about-cta-btn-primary:hover {
+  background: #0a0a0a;
+  color: #ffffff;
+  border-color: #0a0a0a;
+  transform: translateY(-2px);
+}
+
+.about-cta-btn-outline {
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+}
+
+.about-cta-btn-outline:hover {
+  background: #ffffff;
+  color: #dc2626;
+  transform: translateY(-2px);
+}
+
+/* ====== RESPONSIVE ====== */
+
+@media (max-width: 1024px) {
+  .about-story-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .about-story-text .about-section-title {
+    text-align: center;
+  }
+
+  .about-story-paras {
+    text-align: left;
+  }
+
+  .about-gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    padding: 3rem 0 3.5rem;
+  }
+
+  .about-hero-title {
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+  }
+
+  .about-story-images {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about-story-images img {
+    height: 12rem;
+  }
+
+  .about-section-title {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+
+  .about-team-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .about-gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 180px;
+  }
+
+  .about-gallery-item.span-tall {
+    grid-row: span 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .about-stat-value {
+    font-size: 1.75rem;
+  }
+
+  .about-story-images {
+    grid-template-columns: 1fr;
+  }
+
+  .about-story-images img:nth-child(2),
+  .about-story-images img:nth-child(3) {
+    margin-top: 0;
+  }
+
+  .about-gallery-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 200px;
+  }
+
+  .about-gallery-item.span-tall {
+    grid-row: span 1;
+  }
+
+  .about-cta-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .about-cta-btn {
+    width: 100%;
+  }
+
+  .about-insurance-pill {
+    font-size: 0.85rem;
+    padding: 0.6rem 1.1rem;
+  }
+}
