@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import './About.css'
+import './about.css'
 
 const STATS = [
   { value: '98%', label: 'Happy Customers' },
