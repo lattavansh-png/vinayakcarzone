@@ -1,8 +1,9 @@
-﻿import Hero from '../../components/Hero/Hero'
+import Hero from '../../components/Hero/Hero'
 import ServiceCard from '../../components/ServiceCard/ServiceCard'
 import servicesData from '../../data/servicesData'
 import './Home.css'
 import Gallery from '../../components/Gallery/Gallery'
+import OfferPopup from '../../components/OfferPopup/OfferPopup'
 
 // Inline SVG icons (line-art style) for the features section
 const ShieldIcon = () => (
@@ -48,6 +49,7 @@ function Home() {
   return (
     <div className="home-page">
       <Hero />
+      <OfferPopup />
 
       <section className="special-offer section-container">
         <div className="special-offer-card">
@@ -55,7 +57,7 @@ function Home() {
             <GiftIcon />
           </div>
           <div className="special-offer-text">
-            <p className="offer-eyebrow">OPENING OFFER - ₹999 Package</p>
+            <p className="offer-eyebrow">OPENING OFFER - ?999 Package</p>
             <p className="offer-copy">
               5 Car Wash + 5 Wheel Alignment + 1 General Checkup | Valid for 1 Year
             </p>
@@ -204,7 +206,7 @@ function Home() {
         <div className="testimonials-grid">
           <article className="testimonial-card">
             <div className="testimonial-stars" aria-label="5 out of 5 stars">
-              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              <span>?</span><span>?</span><span>?</span><span>?</span><span>?</span>
             </div>
             <p className="testimonial-text">
               "Excellent service! My car feels brand new after the complete service. The team is professional and transparent about pricing."
@@ -219,7 +221,7 @@ function Home() {
           </article>
           <article className="testimonial-card">
             <div className="testimonial-stars" aria-label="5 out of 5 stars">
-              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              <span>?</span><span>?</span><span>?</span><span>?</span><span>?</span>
             </div>
             <p className="testimonial-text">
               "Best car spa in Dausa! They took care of every detail. Highly recommend their cleaning services."
@@ -234,7 +236,7 @@ function Home() {
           </article>
           <article className="testimonial-card">
             <div className="testimonial-stars" aria-label="5 out of 5 stars">
-              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+              <span>?</span><span>?</span><span>?</span><span>?</span><span>?</span>
             </div>
             <p className="testimonial-text">
               "Trustworthy and reliable. Their AC repair service saved me a lot of money. Great workshop!"

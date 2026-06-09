@@ -1,0 +1,237 @@
+/* ====== Overlay / backdrop ====== */
+.offer-popup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  animation: offerFadeIn 0.25s ease-out;
+  overflow-y: auto;
+}
+
+@keyframes offerFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ====== Modal box ====== */
+.offer-popup {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  animation: offerPop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  margin: auto;
+}
+
+@keyframes offerPop {
+  from { opacity: 0; transform: scale(0.85) translateY(20px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ====== Close button ====== */
+.offer-popup-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1.5px solid #111111;
+  color: #111111;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+  padding: 0;
+}
+
+.offer-popup-close:hover {
+  background: #111111;
+  color: #ffffff;
+  transform: rotate(90deg);
+}
+
+/* ====== Red header ====== */
+.offer-popup-header {
+  background: #d61f26;
+  color: #ffffff;
+  padding: 2.25rem 1.5rem 1.75rem;
+  text-align: center;
+}
+
+.offer-popup-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 0.75rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.offer-popup-eyebrow {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem;
+  opacity: 0.95;
+}
+
+.offer-popup-price {
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1;
+  margin: 0;
+  letter-spacing: -0.02em;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.15rem;
+}
+
+.offer-popup-currency {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-top: 0.5rem;
+}
+
+.offer-popup-subtitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0.35rem 0 0;
+  letter-spacing: 0.01em;
+}
+
+/* ====== White body ====== */
+.offer-popup-body {
+  padding: 1.75rem 1.75rem 1.5rem;
+  text-align: center;
+  background: #ffffff;
+}
+
+.offer-popup-includes {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #111111;
+  margin: 0 0 1rem;
+}
+
+.offer-popup-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+  text-align: left;
+  display: inline-block;
+}
+
+.offer-popup-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.98rem;
+  color: #1f2937;
+  margin-bottom: 0.6rem;
+}
+
+.offer-popup-list li:last-child {
+  margin-bottom: 0;
+}
+
+.offer-popup-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fde2e2;
+  color: #d61f26;
+  flex-shrink: 0;
+}
+
+.offer-popup-validity {
+  font-size: 0.92rem;
+  color: #4b5563;
+  margin: 0 0 1.25rem;
+}
+
+.offer-popup-validity strong {
+  color: #111111;
+  font-weight: 700;
+}
+
+.offer-popup-cta {
+  display: block;
+  width: 100%;
+  background: #d61f26;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.95rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  text-transform: uppercase;
+}
+
+.offer-popup-cta:hover {
+  background: #b5181e;
+  transform: translateY(-1px);
+}
+
+.offer-popup-cta:active {
+  transform: translateY(0);
+}
+
+.offer-popup-disclaimer {
+  font-size: 0.78rem;
+  color: #6b7280;
+  margin: 0.9rem 0 0;
+  font-style: italic;
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 480px) {
+  .offer-popup {
+    max-width: 100%;
+    margin: 0.5rem;
+  }
+
+  .offer-popup-header {
+    padding: 1.75rem 1rem 1.5rem;
+  }
+
+  .offer-popup-price {
+    font-size: 3.5rem;
+  }
+
+  .offer-popup-currency {
+    font-size: 2rem;
+  }
+
+  .offer-popup-body {
+    padding: 1.25rem 1.25rem 1.25rem;
+  }
+
+  .offer-popup-list li {
+    font-size: 0.92rem;
+  }
+}
