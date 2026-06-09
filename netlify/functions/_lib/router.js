@@ -326,26 +326,28 @@ const withAdmin = (handler) => async (request, ctx) => {
 }
 
 // ---------- route table ----------
+// Patterns accept both /api/... (when reached via SPA redirect) and
+// /... (when reached directly at /.netlify/functions/api/...).
 const routes = [
   // health
-  { method: 'GET',    pattern: /^\/api\/health\/?$/,                                 handler: health },
+  { method: 'GET',    pattern: /^\/(?:api\/)?health\/?$/,                                          handler: health },
 
   // public appointments
-  { method: 'POST',   pattern: /^\/api\/appointments\/?$/,                           handler: createAppointment },
-  { method: 'GET',    pattern: /^\/api\/appointments\/([^\/]+)\/?$/, groups: ['id'], handler: getById },
+  { method: 'POST',   pattern: /^\/(?:api\/)?appointments\/?$/,                                    handler: createAppointment },
+  { method: 'GET',    pattern: /^\/(?:api\/)?appointments\/([^\/]+)\/?$/, groups: ['id'],          handler: getById },
 
   // admin: appointments
-  { method: 'GET',    pattern: /^\/api\/appointments\/admin\/stats\/?$/,                              handler: withAdmin(getStats) },
-  { method: 'GET',    pattern: /^\/api\/appointments\/admin\/all\/?$/,                                handler: withAdmin(getAll) },
-  { method: 'GET',    pattern: /^\/api\/appointments\/admin\/([^\/]+)\/?$/, groups: ['id'],          handler: withAdmin(getSingle) },
-  { method: 'PATCH',  pattern: /^\/api\/appointments\/admin\/([^\/]+)\/?$/, groups: ['id'],          handler: withAdmin(updateStatus) },
-  { method: 'DELETE', pattern: /^\/api\/appointments\/admin\/([^\/]+)\/?$/, groups: ['id'],          handler: withAdmin(remove) },
+  { method: 'GET',    pattern: /^\/(?:api\/)?appointments\/admin\/stats\/?$/,                     handler: withAdmin(getStats) },
+  { method: 'GET',    pattern: /^\/(?:api\/)?appointments\/admin\/all\/?$/,                       handler: withAdmin(getAll) },
+  { method: 'GET',    pattern: /^\/(?:api\/)?appointments\/admin\/([^\/]+)\/?$/, groups: ['id'],   handler: withAdmin(getSingle) },
+  { method: 'PATCH',  pattern: /^\/(?:api\/)?appointments\/admin\/([^\/]+)\/?$/, groups: ['id'],   handler: withAdmin(updateStatus) },
+  { method: 'DELETE', pattern: /^\/(?:api\/)?appointments\/admin\/([^\/]+)\/?$/, groups: ['id'],   handler: withAdmin(remove) },
 
   // admin: auth
-  { method: 'POST',   pattern: /^\/api\/admin\/login\/?$/,                            handler: login },
-  { method: 'GET',    pattern: /^\/api\/admin\/me\/?$/,                                handler: withAdmin(me) },
-  { method: 'POST',   pattern: /^\/api\/admin\/logout\/?$/,                           handler: withAdmin(logout) },
-  { method: 'PATCH',  pattern: /^\/api\/admin\/change-password\/?$/,                 handler: withAdmin(changePassword) },
+  { method: 'POST',   pattern: /^\/(?:api\/)?admin\/login\/?$/,                                     handler: login },
+  { method: 'GET',    pattern: /^\/(?:api\/)?admin\/me\/?$/,                                        handler: withAdmin(me) },
+  { method: 'POST',   pattern: /^\/(?:api\/)?admin\/logout\/?$/,                                    handler: withAdmin(logout) },
+  { method: 'PATCH',  pattern: /^\/(?:api\/)?admin\/change-password\/?$/,                          handler: withAdmin(changePassword) },
 ]
 
 // ---------- main entry: handle(request, context) ----------
