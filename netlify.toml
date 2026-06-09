@@ -31,23 +31,21 @@
   node_bundler = "esbuild"
 
 # Backend: route every /api/* request to the single serverless function.
-# The function strips /api and dispatches via the in-process router.
-# `force = true` makes this take priority over the SPA fallback.
+# `force = true` ensures this takes priority over the SPA fallback below.
+# The specific path comes BEFORE the catch-all SPA rule.
 [[redirects]]
   from   = "/api/*"
   to     = "/.netlify/functions/api/:splat"
   status = 200
   force  = true
 
-# SPA fallback: send every other unknown path to index.html so
+# SPA fallback: send every unknown path to index.html so
 # React Router can handle client-side routes like /book,
 # /admin/login, /admin/dashboard, etc.
-# Uses a negative look-ahead to make sure it never matches /api/*
 [[redirects]]
   from   = "/*"
   to     = "/index.html"
   status = 200
-  conditions = { Not = { Path = "/api/*" } }
 
 # Security + caching headers
 [[headers]]
