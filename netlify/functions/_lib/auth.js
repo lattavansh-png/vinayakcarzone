@@ -112,17 +112,24 @@ export const rateLimit = async ({ key, windowMs = 15 * 60 * 1000, max = 10 }) =>
   const { getStore } = await import('@netlify/blobs')
   const store = getStore('rate_limits')
   const now = Date.now()
-  let bucket
+  let bucket = { hits: [] }
   try {
-    bucket = await store.get(key, { type: 'json' })
+    const stored = await store.get(key, { type: 'json' })
+    if (stored && typeof stored === 'object' && Array.isArray(stored.hits)) {
+      bucket = stored
+    }
   } catch {
-    bucket = { hits: [] }
+    // Fall through with default empty bucket
   }
   bucket.hits = (bucket.hits || []).filter((t) => now - t < windowMs)
   if (bucket.hits.length >= max) {
     return { allowed: false, retryAfterMs: windowMs - (now - bucket.hits[0]) }
   }
   bucket.hits.push(now)
-  await store.setJSON(key, bucket)
+  try {
+    await store.setJSON(key, bucket)
+  } catch (err) {
+    console.error('rateLimit setJSON error:', err)
+  }
   return { allowed: true }
 }

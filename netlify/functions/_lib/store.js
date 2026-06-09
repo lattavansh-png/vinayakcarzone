@@ -29,7 +29,8 @@ export const saveAppointment = async (appointment) => {
 export const getAppointmentById = async (id) => {
   const store = getAppointmentsStore()
   try {
-    return await store.get(id, { type: 'json' })
+    const data = await store.get(id, { type: 'json' })
+    return data || null
   } catch {
     return null
   }
@@ -71,14 +72,19 @@ export const getNextDailyCount = async () => {
     String(today.getMonth() + 1).padStart(2, '0') +
     String(today.getDate()).padStart(2, '0')
   const key = `appointments_${dateStr}`
-  let counter
+  let counter = { count: 0 }
   try {
-    counter = await store.get(key, { type: 'json' })
+    const stored = await store.get(key, { type: 'json' })
+    if (stored && typeof stored === 'object') counter = stored
   } catch {
-    counter = { count: 0 }
+    // Fall through with default
   }
   counter.count = (counter.count || 0) + 1
-  await store.setJSON(key, counter)
+  try {
+    await store.setJSON(key, counter)
+  } catch (err) {
+    console.error('getNextDailyCount setJSON error:', err)
+  }
   return counter.count
 }
 
