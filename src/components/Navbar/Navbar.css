@@ -106,7 +106,7 @@
 }
 
 .brand-logo {
-  width: 80px;
+  width: 120px;
   height: auto;
   max-width: 100%;
   flex-shrink: 0;
@@ -381,7 +381,7 @@
   }
 
   .brand-logo {
-    width: 70px;
+    width: 105px;
   }
 
   .navbar-admin-stat,
@@ -615,7 +615,7 @@
   }
 
   .brand-logo {
-    width: 56px;
+    width: 84px;
   }
 
   .brand-text {

@@ -81,7 +81,7 @@ function Navbar() {
             </a>
             <a className="navbar-top-item navbar-top-item-address" href="https://maps.app.goo.gl/">
               <span aria-hidden="true">📍</span>
-              <span className="navbar-top-item-text">Dausa Bypass, Dausa, Rajasthan</span>
+              <span className="navbar-top-item-text">Dausa bypass, Near AVM school, Dausa, Rajasthan</span>
             </a>
           </div>
           <div className="navbar-top-right">
