@@ -121,7 +121,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #2563eb;
+  color: #dc2626;
   margin-top: 2px;
 }
 
@@ -132,11 +132,11 @@
 }
 
 .footer-icon-emergency {
-  color: #2563eb;
+  color: #dc2626;
 }
 
 .footer-emergency {
-  color: #2563eb !important;
+  color: #dc2626 !important;
   font-weight: 500;
 }
 
@@ -173,7 +173,7 @@
 }
 
 .footer-bottom a:hover {
-  color: #2563eb;
+  color: #dc2626;
 }
 
 /* ====== RESPONSIVE BREAKPOINTS ====== */

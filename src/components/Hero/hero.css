@@ -40,7 +40,7 @@
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  background: #2563eb;
+  background: #dc2626;
   color: white;
   display: flex;
   justify-content: center;
@@ -50,7 +50,7 @@
   text-transform: uppercase;
   font-size: 0.8rem;
   line-height: 1.2;
-  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.35);
+  box-shadow: 0 10px 30px rgba(220, 38, 38, 0.35);
 }
 
 .hero-copy {
@@ -66,7 +66,7 @@
   width: fit-content;
   max-width: 100%;
   padding: 0.6rem 1rem;
-  background: rgba(37, 99, 235, 0.15);
+  background: rgba(220, 38, 38, 0.15);
   color: #ff6b6b;
   border-radius: 999px;
   text-transform: uppercase;
@@ -84,7 +84,7 @@
 }
 
 .hero-copy h1 span {
-  color: #2563eb;
+  color: #dc2626;
 }
 
 .hero-copy p {
@@ -116,22 +116,22 @@
 }
 
 .button-primary {
-  background: #2563eb;
+  background: #dc2626;
   color: white;
 }
 
 .button-primary:hover {
-  background: #1d4ed8;
+  background: #b91c1c;
 }
 
 .button-secondary {
-  border: 2px solid #2563eb;
+  border: 2px solid #dc2626;
   color: white;
   background: transparent;
 }
 
 .button-secondary:hover {
-  background: #2563eb;
+  background: #dc2626;
 }
 
 /* ====== RESPONSIVE BREAKPOINTS ====== */

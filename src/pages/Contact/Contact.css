@@ -71,7 +71,7 @@
 }
 
 .contact-card a {
-  color: #2563eb;
+  color: #dc2626;
   font-weight: 600;
   text-decoration: none;
   transition: color 0.2s ease;
@@ -80,7 +80,7 @@
 }
 
 .contact-card a:hover {
-  color: #1d4ed8;
+  color: #b91c1c;
   text-decoration: underline;
 }
 

@@ -18,12 +18,12 @@ const formatDate = (iso) => { if (!iso) return '—'; return new Date(iso).toLoc
 const formatDateTime = (iso) => { if (!iso) return '—'; return new Date(iso).toLocaleString('en-IN', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }) }
 
 const STAT_THEMES = {
-  total: { iconBg: '#dbeafe', iconColor: '#2563eb', name: 'TOTAL BOOKINGS' },
+  total: { iconBg: '#fde7e7', iconColor: '#dc2626', name: 'TOTAL BOOKINGS' },
   pending: { iconBg: '#fed7aa', iconColor: '#ea580c', name: 'PENDING' },
   confirmed: { iconBg: '#bbf7d0', iconColor: '#16a34a', name: 'CONFIRMED' },
   completed: { iconBg: '#e9d5ff', iconColor: '#9333ea', name: 'COMPLETED' },
   today: { iconBg: '#fce7f3', iconColor: '#db2777', name: 'TODAY' },
-  thisWeek: { iconBg: '#dbeafe', iconColor: '#2563eb', name: 'THIS WEEK' },
+  thisWeek: { iconBg: '#fde7e7', iconColor: '#dc2626', name: 'THIS WEEK' },
 }
 
 const CalIcon = () => (<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>)
@@ -204,7 +204,7 @@ function AdminDashboard() {
               <div className="admin-service-donut">
                 <svg viewBox="0 0 120 120" width="160" height="160">
                   <circle cx="60" cy="60" r="50" fill="none" stroke="#fee2e2" strokeWidth="12" />
-                  <circle cx="60" cy="60" r="50" fill="none" stroke="#2563eb" strokeWidth="12" strokeDasharray="314.16 314.16" transform="rotate(-90 60 60)" strokeLinecap="round" />
+                  <circle cx="60" cy="60" r="50" fill="none" stroke="#dc2626" strokeWidth="12" strokeDasharray="314.16 314.16" transform="rotate(-90 60 60)" strokeLinecap="round" />
                 </svg>
                 <div className="admin-service-donut-text"><span className="donut-pct">{totalServiceCount > 0 ? '100%' : '0%'}</span><span className="donut-label">of total</span></div>
               </div>

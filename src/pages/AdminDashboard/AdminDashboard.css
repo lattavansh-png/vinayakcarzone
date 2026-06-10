@@ -98,7 +98,7 @@
 }
 
 .admin-meta-item svg {
-  color: #2563eb;
+  color: #dc2626;
   flex-shrink: 0;
 }
 
@@ -132,11 +132,11 @@
 
 .admin-action-view {
   background: #eff6ff;
-  color: #2563eb;
+  color: #dc2626;
 }
 
 .admin-action-view:hover {
-  background: #dbeafe;
+  background: #fde7e7;
 }
 
 .admin-action-logout {
@@ -163,7 +163,7 @@
 
 .admin-alert-error {
   background: #fef2f2;
-  color: #1d4ed8;
+  color: #b91c1c;
   border: 1px solid #fecaca;
 }
 
@@ -194,7 +194,7 @@
 }
 
 .admin-stat-card-new:focus {
-  outline: 2px solid #2563eb;
+  outline: 2px solid #dc2626;
   outline-offset: 2px;
 }
 
@@ -244,7 +244,7 @@
 }
 
 .admin-stat-change-up { color: #16a34a; }
-.admin-stat-change-down { color: #2563eb; }
+.admin-stat-change-down { color: #dc2626; }
 .admin-stat-change-flat { color: #64748b; }
 
 .admin-stat-change .change-arrow {
@@ -266,11 +266,11 @@
   align-items: center;
   font-size: 0.8rem;
   font-weight: 600;
-  color: #2563eb;
+  color: #dc2626;
 }
 
 .admin-stat-link svg {
-  color: #2563eb;
+  color: #dc2626;
 }
 
 /* ====== PANELS ====== */
@@ -309,7 +309,7 @@
 }
 
 .admin-panel-icon {
-  color: #2563eb;
+  color: #dc2626;
   display: inline-flex;
 }
 
@@ -416,7 +416,7 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #2563eb;
+  background: #dc2626;
   flex-shrink: 0;
 }
 
@@ -444,7 +444,7 @@
 
 .admin-service-bar-fill-new {
   height: 100%;
-  background: #2563eb;
+  background: #dc2626;
   border-radius: 999px;
   transition: width 0.4s ease;
 }
@@ -517,8 +517,8 @@
 }
 
 .admin-search:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
 }
 
 .admin-loading,
@@ -645,11 +645,11 @@
   border-radius: 6px;
   padding: 0.35rem 0.5rem;
   cursor: pointer;
-  color: #2563eb;
+  color: #dc2626;
 }
 
 .admin-delete-btn:hover:not(:disabled) {
-  background: #dbeafe;
+  background: #fde7e7;
 }
 
 .admin-pagination {
@@ -702,7 +702,7 @@
 }
 
 .admin-toast-success { background: #16a34a; }
-.admin-toast-error { background: #2563eb; }
+.admin-toast-error { background: #dc2626; }
 
 /* ====== RESPONSIVE ====== */
 @media (max-width: 1280px) {
