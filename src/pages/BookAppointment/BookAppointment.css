@@ -27,7 +27,7 @@
 }
 
 .booking-title .title-accent {
-  color: #dc2626;
+  color: #2563eb;
 }
 
 .booking-subtitle {
@@ -78,16 +78,16 @@
 }
 
 .step-circle.step-active {
-  background: #dc2626;
-  border-color: #dc2626;
+  background: #2563eb;
+  border-color: #2563eb;
   color: #ffffff;
-  box-shadow: 0 6px 16px rgba(220, 38, 38, 0.25);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
 }
 
 .step-circle.step-completed {
   background: #ffffff;
-  border-color: #dc2626;
-  color: #dc2626;
+  border-color: #2563eb;
+  color: #2563eb;
 }
 
 .step-label {
@@ -103,7 +103,7 @@
 }
 
 .step-label.step-label-active {
-  color: #dc2626;
+  color: #2563eb;
 }
 
 .step-connector {
@@ -118,7 +118,7 @@
 }
 
 .step-connector.step-connector-active {
-  background: #dc2626;
+  background: #2563eb;
 }
 
 /* ====== Booking Content Layout ====== */

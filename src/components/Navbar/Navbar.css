@@ -57,8 +57,8 @@
   justify-content: center;
   padding: 0.45rem 1rem;
   background: transparent;
-  color: #dc2626;
-  border: 1px solid #dc2626;
+  color: #2563eb;
+  border: 1px solid #2563eb;
   border-radius: 999px;
   font-size: 0.82rem;
   font-weight: 700;
@@ -191,7 +191,7 @@
 .nav-links a:hover,
 .nav-links a.active,
 .nav-cta.active {
-  color: #dc2626;
+  color: #2563eb;
 }
 
 .nav-cta {
@@ -207,7 +207,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #dc2626;
+  background: #2563eb;
   color: white;
   padding: 0.95rem 1.9rem;
   border-radius: 14px;
@@ -220,12 +220,12 @@
 }
 
 .button-link:hover {
-  background: #b91c1c;
+  background: #1d4ed8;
   transform: translateY(-1px);
 }
 
 .button-link.button-secondary {
-  background: #dc2626;
+  background: #2563eb;
   color: white;
   width: auto;
   min-width: auto;
@@ -251,8 +251,8 @@
 
 .navbar-top-admin {
   background: linear-gradient(90deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-  border-bottom: 1px solid rgba(220, 38, 38, 0.4);
-  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.15);
+  border-bottom: 1px solid rgba(37, 99, 235, 0.4);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.15);
 }
 
 .navbar-top-admin .navbar-top-left,
@@ -265,7 +265,7 @@
   align-items: center;
   gap: 0.45rem;
   padding: 0.4rem 0.9rem;
-  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
   color: #ffffff;
   border-radius: 999px;
   font-size: 0.78rem;
@@ -273,7 +273,7 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   white-space: nowrap;
-  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.35);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
 }
 
 .navbar-admin-user {
@@ -341,15 +341,15 @@
 }
 
 .navbar-admin-link-danger {
-  background: rgba(220, 38, 38, 0.15);
-  color: #fca5a5;
-  border-color: rgba(220, 38, 38, 0.4);
+  background: rgba(37, 99, 235, 0.15);
+  color: #93c5fd;
+  border-color: rgba(37, 99, 235, 0.4);
 }
 
 .navbar-admin-link-danger:hover {
-  background: rgba(220, 38, 38, 0.3);
+  background: rgba(37, 99, 235, 0.3);
   color: #ffffff;
-  border-color: rgba(220, 38, 38, 0.6);
+  border-color: rgba(37, 99, 235, 0.6);
 }
 
 /* Override the brand text color on admin routes for visibility */

@@ -163,7 +163,7 @@
 
 .admin-alert-error {
   background: #fef2f2;
-  color: #b91c1c;
+  color: #1d4ed8;
   border: 1px solid #fecaca;
 }
 
@@ -244,7 +244,7 @@
 }
 
 .admin-stat-change-up { color: #16a34a; }
-.admin-stat-change-down { color: #dc2626; }
+.admin-stat-change-down { color: #2563eb; }
 .admin-stat-change-flat { color: #64748b; }
 
 .admin-stat-change .change-arrow {
@@ -416,7 +416,7 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #dc2626;
+  background: #2563eb;
   flex-shrink: 0;
 }
 
@@ -444,7 +444,7 @@
 
 .admin-service-bar-fill-new {
   height: 100%;
-  background: #dc2626;
+  background: #2563eb;
   border-radius: 999px;
   transition: width 0.4s ease;
 }
@@ -645,11 +645,11 @@
   border-radius: 6px;
   padding: 0.35rem 0.5rem;
   cursor: pointer;
-  color: #dc2626;
+  color: #2563eb;
 }
 
 .admin-delete-btn:hover:not(:disabled) {
-  background: #fee2e2;
+  background: #dbeafe;
 }
 
 .admin-pagination {
@@ -702,7 +702,7 @@
 }
 
 .admin-toast-success { background: #16a34a; }
-.admin-toast-error { background: #dc2626; }
+.admin-toast-error { background: #2563eb; }
 
 /* ====== RESPONSIVE ====== */
 @media (max-width: 1280px) {

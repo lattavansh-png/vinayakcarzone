@@ -72,7 +72,7 @@ button {
 
 button.button-primary,
 a.button-primary {
-  background: #dc2626;
+  background: #2563eb;
   color: white;
   border: none;
   border-radius: 8px;
@@ -89,7 +89,7 @@ a.button-primary {
 
 button.button-primary:hover,
 a.button-primary:hover {
-  background: #b91c1c;
+  background: #1d4ed8;
 }
 
 button.button-secondary,
@@ -130,7 +130,7 @@ a.button-secondary:hover {
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: #dc2626;
+  color: #2563eb;
   font-size: 0.75rem;
   font-weight: 700;
   margin: 0 0 0.8rem;
@@ -149,7 +149,7 @@ a.button-secondary:hover {
   right: 2rem;
   width: 50px;
   height: 50px;
-  background: #dc2626;
+  background: #2563eb;
   color: white;
   border: none;
   border-radius: 50%;
@@ -170,7 +170,7 @@ a.button-secondary:hover {
 }
 
 .scroll-to-top:hover {
-  background: #b91c1c;
+  background: #1d4ed8;
 }
 
 /* ===== RESPONSIVE BREAKPOINTS ===== */

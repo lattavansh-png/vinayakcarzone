@@ -16,7 +16,7 @@
 .service-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
-  border-color: rgba(220, 38, 38, 0.2);
+  border-color: rgba(37, 99, 235, 0.2);
 }
 
 .service-card-icon {
@@ -25,8 +25,8 @@
   display: grid;
   place-items: center;
   border-radius: 12px;
-  background: #fde7e7;
-  color: #dc2626;
+  background: #dbeafe;
+  color: #2563eb;
   flex-shrink: 0;
 }
 
@@ -66,7 +66,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
-  color: #dc2626;
+  color: #2563eb;
   font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none;
@@ -76,7 +76,7 @@
 }
 
 .service-card-link:hover {
-  color: #b91c1c;
+  color: #1d4ed8;
   gap: 0.6rem;
 }
 

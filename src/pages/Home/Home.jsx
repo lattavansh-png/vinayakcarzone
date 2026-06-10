@@ -322,7 +322,7 @@ function Home() {
           </div>
           <div className="map-container">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3568.3522519999996!2d75.40891!3d27.30556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c71c5d5d5d5d5%3A0x5d5d5d5d5d5d5d5!2sVinayak%20Car%20Zone!5e0!3m2!1sen!2sin!4v1234567890"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14232.704960265259!2d76.3058578254089!3d26.897901293627818!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396d8d006d00c315%3A0x77463ccf34dea911!2sVinayak%20Car%20Zone!5e0!3m2!1sen!2sin!4v1781076423410!5m2!1sen!2sin"
               width="100%"
               height="430"
               className="location-map"

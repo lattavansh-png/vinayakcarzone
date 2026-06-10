@@ -204,7 +204,7 @@ function AdminDashboard() {
               <div className="admin-service-donut">
                 <svg viewBox="0 0 120 120" width="160" height="160">
                   <circle cx="60" cy="60" r="50" fill="none" stroke="#fee2e2" strokeWidth="12" />
-                  <circle cx="60" cy="60" r="50" fill="none" stroke="#dc2626" strokeWidth="12" strokeDasharray="314.16 314.16" transform="rotate(-90 60 60)" strokeLinecap="round" />
+                  <circle cx="60" cy="60" r="50" fill="none" stroke="#2563eb" strokeWidth="12" strokeDasharray="314.16 314.16" transform="rotate(-90 60 60)" strokeLinecap="round" />
                 </svg>
                 <div className="admin-service-donut-text"><span className="donut-pct">{totalServiceCount > 0 ? '100%' : '0%'}</span><span className="donut-label">of total</span></div>
               </div>

@@ -32,7 +32,7 @@
   right: -10%;
   width: 60%;
   height: 200%;
-  background: radial-gradient(circle, rgba(220, 38, 38, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -47,8 +47,8 @@
 .about-tag {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background: rgba(220, 38, 38, 0.2);
-  color: #fca5a5;
+  background: rgba(37, 99, 235, 0.2);
+  color: #93c5fd;
   border-radius: 4px;
   font-size: 0.875rem;
   font-weight: 700;
@@ -68,7 +68,7 @@
 }
 
 .about-hero-title .text-red {
-  color: #dc2626;
+  color: #2563eb;
 }
 
 .about-hero-desc {
@@ -80,7 +80,7 @@
 
 /* ====== STATS ====== */
 .about-stats {
-  background: #dc2626;
+  background: #2563eb;
   padding: clamp(2.5rem, 5vw, 4rem) 0;
 }
 
@@ -118,7 +118,7 @@
 
 .about-tag-sm {
   display: inline-block;
-  color: #dc2626;
+  color: #2563eb;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -141,7 +141,7 @@
 }
 
 .about-section-header-light .about-tag-sm-light {
-  color: #fca5a5;
+  color: #93c5fd;
 }
 
 /* ====== OUR STORY ====== */
@@ -273,7 +273,7 @@
 
 .about-team-role {
   display: inline-block;
-  color: #dc2626;
+  color: #2563eb;
   font-weight: 600;
   font-size: 0.85rem;
   text-transform: uppercase;
@@ -338,9 +338,9 @@
 }
 
 .about-insurance-pill:hover {
-  background: #dc2626;
+  background: #2563eb;
   color: #ffffff;
-  border-color: #dc2626;
+  border-color: #2563eb;
 }
 
 /* ====== GALLERY ====== */
@@ -380,7 +380,7 @@
 
 /* ====== CTA ====== */
 .about-cta {
-  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
   color: #ffffff;
   padding: clamp(3rem, 6vw, 6rem) 0;
   text-align: center;
@@ -427,7 +427,7 @@
 
 .about-cta-btn-primary {
   background: #ffffff;
-  color: #dc2626;
+  color: #2563eb;
   border: 2px solid #ffffff;
 }
 
@@ -446,7 +446,7 @@
 
 .about-cta-btn-outline:hover {
   background: #ffffff;
-  color: #dc2626;
+  color: #2563eb;
   transform: translateY(-2px);
 }
 
